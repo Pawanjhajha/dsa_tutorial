@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="element"/>
+    <button onclick="getElement()">Get Element</button>
+    
+    <script>
+        // 1.traversing the array
+        let data=[5,4,10,11];
+        // for(let index=0;index<data.length;index++){
+        //     console.log(data[index]);
+        // }
+
+        // 2. accessing the 3 element in array
+        console.log(data[2])
+
+        //3. take input form user and access element
+        function getElement(){
+            let el=Number(document.getElementById('element').value);
+            if(el<data.length){
+                console.log(el,"el")
+                alert(data[el]);
+            }else{
+                alert(` please enter number less than ${data.length}`)
+            }
+        }
+
+    </script>
+</body>
+</html>
