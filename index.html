@@ -6,6 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function findLargest(arr){
+            let maxEle=arr[0];//array ke first element by default ham max maan rahe h
+            for(let i=1;i<arr.length;i++){
+                //i=1 arr[0] ko max kr diya h to i=1 yani index first element ko usi se compare karane ka koi phayada nhi h esliye second element se loop start kagege
+                if(maxEle<arr[i]){
+                    maxEle=arr[i]
+                }
+            }
+            return maxEle;
+        }
+        const result=findLargest([10, 20, 30, 5 ,10,15]);
+        console.log(result)
+    </script>
 </body>
 </html>
