@@ -6,6 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function findIndices(arr,element){
+            //find krna h element ki sari occurance position ko
+            let index=[];
+            for(let i=0;i<arr.length;i++){
+                if(arr[i]==element){
+                    index.push(i)
+                }
+            }
+            return index;
+        }
+        console.log(findIndices([1, 2, 3, 2, 4], 2),"all indices");
+    </script>
 </body>
 </html>
