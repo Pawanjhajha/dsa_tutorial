@@ -6,6 +6,95 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+//         You need to write a function that takes two inputs:
+
+// An array (e.g., [1, 2, 3, 4, 5]).
+// A number k (e.g., 2) which indicates how many steps to rotate the array.
+// The function should rotate the array to the right by k steps and return the rotated array.
+
+// Explanation of "Rotate to the Right":
+// Rotating an array to the right by 1 step means moving the last element of the array to the beginning.
+// For example:
+
+// [1, 2, 3, 4, 5] → [5, 1, 2, 3, 4] (Rotated by 1 step)
+// If you rotate it by 2 steps:
+
+// First rotation: [5, 1, 2, 3, 4]
+// Second rotation: [4, 5, 1, 2, 3]
+// So, the output of rotating [1, 2, 3, 4, 5] by 2 steps is [4, 5, 1, 2, 3].
+
+// Key Considerations:
+// If k is larger than the array's length: Rotating the array by its length (k = arr.length) results in the same array because it comes full circle.
+// For example:
+
+
+// rotateArray([1, 2, 3], 3); // Output: [1, 2, 3]
+// If k > arr.length, you can simplify k using k % arr.length.
+
+// Steps to Solve:
+
+// Calculate the actual number of rotations needed (k = k % arr.length).
+// Slice the last k elements from the array.
+// Concatenate those elements to the beginning of the remaining array.
+
+// Example Walkthrough:
+// Let’s rotate [1, 2, 3, 4, 5] by k = 2:
+
+// k = k % arr.length → k = 2 % 5 → k = 2.
+// Slice the last k elements: [4, 5].
+// Concatenate the sliced elements to the beginning of the array: [4, 5] + [1, 2, 3] → [4, 5, 1, 2, 3].
+
+//method 1
+//         function rotateArray(arr,k){
+//             arr=arr;
+//             k=k%arr.length;//output 2 becaus 2 me 5 ka baag jata nhi to sesfal 2
+//             let result=arr.splice(-k);
+//             let finalarray=[...result,...arr]
+// return finalarray;
+            
+//         }
+//         const arr1=rotateArray([1, 2, 3, 4, 5], 2);
+       
+
+//method 2 using recursion
+
+// function rotateArray(arr,k){
+//     k=k%arr.length;
+//     console.log(k,"k")
+//     if(k==0){
+//         return arr;
+//     }
+//     arr.unshift(arr[arr.length-1]);
+//     arr.pop()
+//     return rotateArray(arr,k-1)
+
+// }
+// const result =rotateArray([1, 2, 3, 4, 5], 2);
+// console.log(result,"result")
+
+// method 3
+function rotateArray(arr,k){
+    k=k%arr.length;
+    console.log(k,"k")
+    if(k==0){
+        return arr;
+    }
+   const lastElement=arr[arr.length-1];
+   console.log(lastElement,"last element")
+
+// Shift all elements to the right
+for (let i = arr.length - 1; i > 0; i--) {
+    arr[i] = arr[i - 1];
+    console.log(arr)
+}
+  // Place the saved last element at the first position
+  arr[0] = lastElement;
+    return rotateArray(arr,k-1)
+
+}
+const result =rotateArray([1, 2, 3, 4, 5], 2);
+console.log(result,"result")
+    </script>
 </body>
 </html>
