@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function maxSum(arr,k){
+            let n=arr.length;
+            let i=0;
+            let j=0;
+            let max=0;
+            let maxSum=0;
+            while(j<n){
+                maxSum=maxSum+arr[j];
+                if(j-i+1<k){
+                    j++;
+                }else if(j-i+1==k){
+                    max=max>maxSum?max:maxSum;
+                    maxSum=maxSum-arr[i];
+                    i++;
+                    j++
+                }
+            }
+            return max;
+        }
+        console.log(maxSum([2, 1, 5, 1, 3, 2],3))
+    </script>
 </body>
 </html>
