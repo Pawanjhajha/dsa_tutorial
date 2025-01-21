@@ -6,6 +6,55 @@
     <title>Document</title>
 </head>
 <body>
+    <script>
+        // function reverseArray(arr){
+        //     let tem=null;
+        //     for(let i=0;i<arr.length;i++){
+        //         if(i<arr.length-1-i){
+        //             tem=arr[i];
+        //             arr[i]=arr[arr.length-1-i];
+        //             arr[arr.length-1-i]=tem
+        //         }else{
+        //             break;
+        //         }
+        //         console.log(arr,"arr")
+        //     }
+        //     return arr;
+        // }
+        // function reverseArray(arr){
+        //     let start=0;
+        //     let end=arr.length-1;
+        //     while(start<end){
+        //         // swap(arr[start],arr[end]);
+        //         let tem=arr[start];
+        //         arr[start]=arr[end];
+        //         arr[end]=tem;
+        //         start++;
+        //         end--;
+        //     }
+        //     return arr;
+        // }
+        function reverseArray(arr) {
+    // Two-pointer approach
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left < right) {
+        // Swap elements at left and right indices
+        // console.log(arr,"before")
+        // [arr[left], arr[right]] = [arr[right], arr[left]];
+        // console.log([arr[left], arr[right]] = [arr[right], arr[left]])
+        arr[left]=arr[left]+arr[right];
+        arr[right]=arr[left]-arr[right];
+        arr[left]=arr[left]-arr[right];
+        left++;
+        right--;
+    }
+    return arr;
+}
+       const result= reverseArray([1, 2, 3, 4, 5,6]);
+       console.log(result,"result")
+    </script>
     
 </body>
 </html>
