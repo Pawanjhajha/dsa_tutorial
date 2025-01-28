@@ -6,6 +6,55 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        // function mergeArrays(arr1,arr2){
+        //     return [...arr1,...arr2]
+        // }
+        // function mergeArrays(arr1,arr2){
+        //     let tem=[];
+        //     let first=0;
+        //     let second=0;
+        //     while(first<arr1.length){
+        //         tem[first]=arr1[first];
+        //         first++;
+        //     }
+        //     while(second<arr2.length){
+        //         tem[first]=arr2[second];
+        //         first++;
+        //         second++;
+        //     }
+        //     return tem;
+        // }
+        function mergeArrays(arr1,arr2){
+            let res=[];
+            let i=0;
+            let j=0;
+            let k=0;
+            while(i<arr1.length && j<arr2.length){
+                if(arr1[i]<arr2[j]){
+                    //if arr1 ka element thota ha arr2 ke element se
+                    res[k]=arr1[i];
+                    i++;
+                    k++;
+                }else{
+                    res[k]=arr2[j];
+                    j++;
+                    k++;
+                }
+            }
+            while(i<arr1.length){
+                res[k]=arr1[i];
+                i++;
+                k++;
+            }
+            while(j<arr2.length){
+                res[k]=arr2[j];
+                j++;
+            }
+            return res;
+        }
+        const result =mergeArrays([1, 3, 5], [2, 4, 6]);
+        console.log(result,"result")
+    </script>
 </body>
 </html>
