@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        function integers(arr1,arr2){
-           
-            let res=[];
-            let k=0;
-            for(i=0;i<arr1.length;i++){
-                for(j=0;j<arr2.length;j++){
-                    if(arr1[i]==arr2[j]){
-                        res[k]=arr1[i];
-                        k++;
-                        console.log(res,"res")
-                        break;
-                    }
-                }
-            }
-            return res;
-            // return arr1.filter((val)=>{
-            //     return arr2.includes(val)
-            // })
+      function findIntersection(arr1, arr2) {
+    let freqMap = {};
+    let result = [];
+
+    // Store frequency of elements in arr1
+    for (let num of arr1) {
+        freqMap[num] = (freqMap[num] || 0) + 1;
+    }
+
+    // Check if elements of arr2 exist in the hashmap
+    for (let num of arr2) {
+        console.log(freqMap[num]>0,num)
+        if (freqMap[num] > 0) {
+            result.push(num);
+            freqMap[num]--; // Reduce count to maintain frequency
         }
-        const result=integers([1, 2, 2, 3, 4],[2, 2, 4, 6,2,5,3,4]);
-        console.log(result,"result")
+    }
+    return result;
+}
+
+console.log(findIntersection([1, 2, 2, 2, 3, 4], [2, 2, 4, 6])); 
+// Output: [2, 2, 4]
+
     </script>
 </body>
+
 </html>
