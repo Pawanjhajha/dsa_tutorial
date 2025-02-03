@@ -6,6 +6,39 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function missingNumber(arr1){
+            let arr1Length=arr1.length;
+            let contain1=false;
+            for(let i=0;i<arr1Length;i++){
+                if(arr1[i]==1){
+                    contain1=true;
+                }
+
+                if(arr1[i]<=0 || arr1[i]>arr1Length){
+                    arr1[i]=1;
+                }
+            }
+            console.log(arr1)
+            if(contain1==false){
+                return 1;
+            }
+            for(let i=0;i<arr1Length;i++){
+                let number=arr1[i];
+                let index=number-1;
+                if(arr1[index]<0){
+                    continue;
+                }else{
+                    arr1[index]=-arr1[index];
+                }
+            }
+            for(let i=0;i<arr1Length;i++){
+                if(arr1[i]>0){
+                    return i+1;
+                }
+            }
+        }
+        console.log(missingNumber([2,-5,1,4,6]))
+    </script>
 </body>
 </html>
