@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+       function consicutive(arr){
+        if(arr.length==0)return 0;
+        let  numset=new Set(arr);
+       let longestStreak=0;
+       for(let num of numset){
+        if(!numset.has(num-1)){
+            let currentNum=num;
+            let currentStreak=1;
+            while(numset.has(currentNum+1)){
+                currentNum=currentNum+1;
+                currentStreak=currentStreak+1;
+            }
+            longestStreak=Math.max(longestStreak,currentStreak);
+            console.log(longestStreak,"longestStreak")
+        }
+       }
+       return longestStreak;
+        console.log(start,"start")
+       }
+       consicutive([102,4,100,1,101,3,2,1,1])
+    </script>
 </body>
 </html>
