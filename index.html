@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function rotate(array){
+            let len=array.length;
+            let left=0;
+            let right=0;
+            let tem;
+            for(let i=0;right<len;i++){
+                if(array[right]!=0){
+                    tem=array[left];
+                    array[left]=array[right];
+                    array[right]=tem;
+                    left++;
+                }
+                // left++;
+                right++;
+                console.log(array,"in loop",left,right)
+            }
+            // console.log(array,"arr")
+        }
+        const ouptut=rotate([0,1,0,3,12,0,5,0])
+console.log(ouptut)
+    </script>
 </body>
 </html>
